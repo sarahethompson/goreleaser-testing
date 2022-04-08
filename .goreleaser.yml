@@ -42,7 +42,7 @@ checksum:
   name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
 publishers:
   - checksum: true
-    cmd: echo "artifact-path={{ abs .ArtifactPath }} / artifact-name={{ .ArtifactName }}"
+    cmd: echo "artifact-path={{ dir .ArtifactPath }} / artifact-name={{ .ArtifactName }}"
     extra_files:
       - glob: 'terraform-registry-manifest.json'
         name_template: '{{ .ProjectName }}_{{ .Version }}_manifest.json'
